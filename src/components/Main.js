@@ -10,12 +10,13 @@ class Main extends React.Component {
     };
   }
 
-  getCoordinates = async (ev) => {
+//   The getCoordinates method could be split up into smaller methods to make it more modular and easier to read.
+getCoordinates = async (ev) => {
     ev.preventDefault();
     try {
       const API_KEY = process.env.REACT_APP_LOCATIONIQ_API_KEY;
       const URL = `https://us1.locationiq.com/v1/search?key=${API_KEY}&q=${this.state.location}&format=json`;
-
+// The process.env.REACT_APP_LOCATIONIQ_API_KEY could be stored in a separate file and imported to avoid having it hard-coded in the component.
       const response = await fetch(URL);
       const data = await response.json();
 
